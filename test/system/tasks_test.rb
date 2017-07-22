@@ -43,4 +43,15 @@ class TasksTest < ApplicationSystemTestCase
     assert_text "Task was successfully updated."
   end
 
+  test "deleting a task" do
+    visit tasks_url
+    first(:link, "Destroy").click
+
+    assert_text "Are you sure"
+
+    click_on "OK"
+
+    assert_text "Task was successfully destroyed."
+  end
+
 end
